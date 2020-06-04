@@ -24,7 +24,7 @@ As a best practice, I removed the secret key from settings.py. In order for the 
 
 The database is not stored the git repository either, which is another best practice. Luckily, this is easy to set up with manage.py in the ./pokedex folder.
 
-`python manage.py runserver`
+`python manage.py migrate`
 
 ### Starting the server
 
