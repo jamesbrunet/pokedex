@@ -13,8 +13,8 @@ def index(request):
 
 def create_backup(request):
     cards = Card.where(set='Detective Pikachu')
-    insert_cards(cards)
-    context = {"cards": cards}
+    overlap = insert_cards(cards)
+    context = {"overlap": overlap,"cards": cards}
     return render(request, "cardarchive/backup.html", context)
 
 
@@ -22,4 +22,7 @@ def purge(request):
     purged = purge_cards()
     context = {"cards": purged}
     return render(request, "cardarchive/purge.html", context)
+
+def search(request):
+    return HttpResponse("Not implemented!")
 

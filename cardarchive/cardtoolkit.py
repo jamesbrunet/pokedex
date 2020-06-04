@@ -11,7 +11,17 @@ def insert_cards(cards):
             )
         )
 
-    PokemonCard.objects.bulk_create(cards_to_save)
+    # We don't want to backup if we already have any of these cards stored
+    saved_card_ids = PokemonCard.objects.all().values_list('id', flat=True)
+    cards_to_save_ids = [card.id for card in cards]
+    overlap = [value for value in saved_card_ids if value in cards_to_save_ids]
+    print(overlap)
+
+    if overlap:
+        return True
+    else:
+        return False
+        PokemonCard.objects.bulk_create(cards_to_save)
 
 
 def purge_cards():

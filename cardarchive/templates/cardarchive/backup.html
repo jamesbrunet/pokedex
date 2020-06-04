@@ -1,4 +1,7 @@
-{% if cards %}
+{% if overlap %}
+<p>It looks like you're trying to back up some cards that already exist in the db. Unfortunately, a system to deal with
+    this has not been implemented. You'll have to purge the database to back up again. </p>
+{% elif cards %}
     <p>Successfully backed up:</p>
     <table>
         <tr>
