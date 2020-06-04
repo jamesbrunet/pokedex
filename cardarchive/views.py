@@ -4,7 +4,7 @@ from django.template import loader
 from django.shortcuts import render
 from pokemontcgsdk import Card
 from pokemontcgsdk import Set
-from .savecards import insert_cards
+from .cardtoolkit import insert_cards, purge_cards
 
 
 def index(request):
@@ -16,3 +16,10 @@ def create_backup(request):
     insert_cards(cards)
     context = {"cards": cards}
     return render(request, "cardarchive/backup.html", context)
+
+
+def purge(request):
+    purged = purge_cards()
+    context = {"cards": purged}
+    return render(request, "cardarchive/purge.html", context)
+

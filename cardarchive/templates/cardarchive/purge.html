@@ -1,0 +1,18 @@
+{% if cards %}
+<p>Successfully <b>purged:</b></p>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+        </tr>
+        {% for card in cards %}
+            <tr>
+                <td>{{ card.id }}</td>
+                <td>{{ card.name }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% else %}
+    <p>No cards were purged.</p>
+    <img src="https://i.imgur.com/b7pOX75h.jpg"/>
+{% endif %}
