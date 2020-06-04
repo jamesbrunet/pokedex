@@ -4,8 +4,10 @@ A system that allows you to backup and delete pokemon cards.
 #### Limitations
 This only backs up the name and id of pokemon cards, and the search feature is not implemented
 
-# Installation instructions
-#### Requirements
+# Installation Instructions
+Install Python 3
+
+#### Python Requirements
 
 `pip install django`
 
@@ -18,6 +20,11 @@ As a best practice, I removed the secret key from settings.py. In order for the 
 1. Generate your secret key here: https://djecrety.ir/
 2. Set SECRET_KEY to that value. This can be configured in your run configuration in pycharm, or you can set it in your terminal with `export SECRET_KEY=<your-secret-key>`
 
+### Database Migrations
+
+The database is not stored the git repository either, which is another best practice. Luckily, this is easy to set up with manage.py in the ./pokedex folder.
+
+`python manage.py runserver`
 
 ### Starting the server
 
