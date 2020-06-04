@@ -1,0 +1,17 @@
+{% if cards %}
+    <p>Successfully backed up:</p>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+        </tr>
+        {% for card in cards %}
+            <tr>
+                <td>{{ card.id }}</td>
+                <td>{{ card.name }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% else %}
+    <p>No cards are in the Detective Pikachu set. Weird.</p>
+{% endif %}
