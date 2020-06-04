@@ -20,8 +20,8 @@ def insert_cards(cards):
     if overlap:
         return True
     else:
-        return False
         PokemonCard.objects.bulk_create(cards_to_save)
+        return False
 
 
 def purge_cards():
