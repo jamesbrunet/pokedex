@@ -1,11 +1,24 @@
-<form action="/cardarchive/backup">
+<form action="{% url 'cardarchive:create backup' %}" method="post">
+    {% csrf_token %}
     <input type="submit" value="Create Backup" />
 </form>
 
-<form action="/cardarchive/purge">
+<form action="{% url 'cardarchive:purge' %}" method="post">
+    {% csrf_token %}
     <input type="submit" value="Purge Backup" />
 </form>
 
-<form action="/cardarchive/search">
-    <input type="submit" value="Search Backup" />
+<form action="{% url 'cardarchive:search' %}" method="post">
+    {% csrf_token %}
+    <div>
+        <input type="radio" name="searchby" value="name">
+        <label for="name">Name</label>
+        <input type="radio" name="searchby" value="rarity">
+        <label for="rarity">Rarity</label>
+    </div>
+    <div>
+        <label for="searchterm">Search Term</label>
+        <input type="text" name="searchterm">
+    </div>
+    <input type="submit" value="Search" />
 </form>

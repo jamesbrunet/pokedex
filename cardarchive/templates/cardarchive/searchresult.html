@@ -1,0 +1,20 @@
+<p>You searched by {{ search_method }} for the following value: {{ search_text }}</p>
+{% if not matches %}
+<p>No search results</p>
+{% else %}
+<p>Search results:</p>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Set Name</th>
+    </tr>
+    {% for card in matches %}
+        <tr>
+            <td>{{ card.id }}</td>
+            <td>{{ card.name }}</td>
+            <td>{{ card.set.name }}</td>
+        </tr>
+    {% endfor %}
+</table>
+{% endif %}

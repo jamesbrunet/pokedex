@@ -1,8 +1,20 @@
 {% if overlap %}
-<p>It looks like you're trying to back up some cards that already exist in the db. Unfortunately, a system to deal with
-    this has not been implemented. You'll have to purge the database to back up again. </p>
-{% elif cards %}
-    <p>Successfully backed up:</p>
+    <p>Cards already backed up:</p>
+   <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+        </tr>
+        {% for card in overlap %}
+            <tr>
+                <td>{{ card.id }}</td>
+                <td>{{ card.name }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endif %}
+{% if cards %}
+    <p>New cards added:</p>
     <table>
         <tr>
             <th>ID</th>
@@ -15,6 +27,7 @@
             </tr>
         {% endfor %}
     </table>
-{% else %}
-    <p>No cards are in the Detective Pikachu set. Weird.</p>
+{% endif %}
+{% if not cards and not overlap %}
+    <p>No cards are in the set. Weird.</p>
 {% endif %}
